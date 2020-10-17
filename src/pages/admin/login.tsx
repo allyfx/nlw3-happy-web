@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiCheck } from 'react-icons/fi';
+import api from '../../services/api';
 
 import '../../styles/pages/admin/login.css';
 import logo from '../../images/logo-column.svg';
@@ -12,6 +13,16 @@ function Login() {
 
     async function handleSubmitLogin(event: FormEvent) {
         event.preventDefault();
+
+        const response = await api.post('/user/authenticate', { email, password });
+
+        const { user, token } = response.data;
+
+        if (rememberCheck) {
+            localStorage.setItem('@Happy:token', token);
+        }
+
+        console.log(response.data);
     }
 
     function handleSelectButtomCheck() {
