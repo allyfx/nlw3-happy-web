@@ -28,7 +28,7 @@ function Landing() {
                     <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
                 </Link>
 
-                <Link to="" className="restricted-access-button">
+                <Link to="/login" className="restricted-access-button">
                     Acesso restrito
                 </Link>
             </div>
