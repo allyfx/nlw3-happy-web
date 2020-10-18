@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiCheck } from 'react-icons/fi';
 import api from '../../services/api';
 
+import SideContainer from '../../components/SideContainer';
+
 import '../../styles/pages/admin/login.css';
-import logo from '../../images/logo-column.svg';
 
 function Login() {
     const [rememberCheck, setRememberCheck] = useState(false);
@@ -31,14 +32,7 @@ function Login() {
 
     return (
         <div className="content">
-            <div className="informations">
-                <img src={logo} alt="Happy"/>
-
-                <div className="location">
-                    <strong>Guidoval</strong>
-                    <span>Minas Gerais</span>
-                </div>
-            </div>
+            <SideContainer />
 
             <aside className="form-container">
                 <Link to="/" className="goback-button">

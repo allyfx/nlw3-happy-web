@@ -14,17 +14,6 @@
     justify-content: center;
 }
 
-.content .informations {
-    height: 100vh;
-    background: #15C3D6;
-
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 .content .location {
     font-size: 24px;
     margin-top: 100px;
