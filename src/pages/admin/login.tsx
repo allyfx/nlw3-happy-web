@@ -89,7 +89,7 @@ function Login() {
                                 <span>Lembrar-me</span>
                             </div>
                             
-                            <Link to="">Esqueci minha senha</Link>
+                            <Link to="/forgot-password">Esqueci minha senha</Link>
                         </div>
                     </div>
 
