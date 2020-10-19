@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiMapPin, FiAlertCircle, FiPower } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 
 import logoImg from '../images/map-marker.svg';
 
@@ -11,6 +12,15 @@ interface SideDashboardBarProps {
 }
 
 export default function SideDashboardBar({ selected, alertCircle }: SideDashboardBarProps) {
+    const history = useHistory();
+
+    function handleLogoutButton() {
+        localStorage.clear();
+        sessionStorage.clear();
+
+        history.push('/');
+    }
+
     return (
         <div className="container">
             <img src={logoImg} alt="Happy"/>
@@ -42,7 +52,7 @@ export default function SideDashboardBar({ selected, alertCircle }: SideDashboar
                 </button>
             </div>
 
-            <button type="button" className="logout-button">
+            <button onClick={handleLogoutButton} type="button" className="logout-button">
                 <FiPower size={24} />
             </button>
         </div>

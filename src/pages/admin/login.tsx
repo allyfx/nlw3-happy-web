@@ -1,5 +1,5 @@
-import React, { useState, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, FormEvent, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft, FiCheck } from 'react-icons/fi';
 import api from '../../services/api';
 
@@ -7,25 +7,47 @@ import SideContainer from '../../components/SideContainer';
 
 import '../../styles/pages/admin/login.css';
 
+interface Request {
+    user: {
+        id: number;
+        name: string;
+        email: string;
+    },
+    token: string;
+}
+
 function Login() {
+    const history = useHistory();
     const [rememberCheck, setRememberCheck] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    async function handleSubmitLogin(event: FormEvent) {
-        event.preventDefault();
+    useEffect(() => {
+        if (localStorage.getItem('@Happy:user')) {
+            return history.push('/dashboard');
+        }
+    }, [history]);
 
+    async function logIn() {
         const response = await api.post('/user/authenticate', { email, password });
 
-        const { user, token } = response.data;
+        const { user, token } = response.data as Request;
 
         if (rememberCheck) {
             localStorage.setItem('@Happy:token', token);
-            localStorage.setItem('@Happy:user', user);
-        } else {
-            sessionStorage.setItem('@Happy:token', token);
-            sessionStorage.setItem('@Happy:user', user);
+            localStorage.setItem('@Happy:user', JSON.stringify(user));
         }
+
+        sessionStorage.setItem('@Happy:token', token);
+        sessionStorage.setItem('@Happy:user', JSON.stringify(user));
+    }
+
+    async function handleSubmitLogin(event: FormEvent) {
+        event.preventDefault();
+
+        await logIn();
+
+        history.push('/dashboard');
     }
 
     function handleSelectButtomCheck() {

@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+import Route from './components/Route';
 
 import Landing from './pages/Landing';
 import OrphanagesMap from './pages/OrphanagesMap';
@@ -15,19 +17,17 @@ import Dashboard from './pages/admin/dashboard/Dashboard';
 function Routes() {
     return (
         <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={Landing} />
-                <Route path="/app" component={OrphanagesMap} />
+            <Route path="/" exact component={Landing} />
+            <Route path="/app" component={OrphanagesMap} />
 
-                <Route path="/orphanages/create" component={CreateOrphanage} />
-                <Route path="/orphanages/:id" component={Orphanage} />
+            <Route path="/orphanages/create" component={CreateOrphanage} />
+            <Route path="/orphanages/:id" component={Orphanage} />
 
-                <Route path="/login" component={Login} />
-                <Route path="/forgot-password" component={ForgotPassword} />
-                <Route path="/reset-password" component={ResetPassword} />
+            <Route path="/login" component={Login} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+            <Route path="/reset-password" component={ResetPassword} />
 
-                <Route path="/dashboard" component={Dashboard} />
-            </Switch>
+            <Route path="/dashboard" component={Dashboard} isPrivate />
         </BrowserRouter>
     );
 }
