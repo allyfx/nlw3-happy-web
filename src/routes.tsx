@@ -10,6 +10,8 @@ import Login from './pages/admin/Login';
 import ForgotPassword from './pages/admin/ForgotPassword';
 import ResetPassword from './pages/admin/ResetPassword';
 
+import Dashboard from './pages/admin/dashboard/Dashboard';
+
 function Routes() {
     return (
         <BrowserRouter>
@@ -23,6 +25,8 @@ function Routes() {
                 <Route path="/login" component={Login} />
                 <Route path="/forgot-password" component={ForgotPassword} />
                 <Route path="/reset-password" component={ResetPassword} />
+
+                <Route path="/dashboard" component={Dashboard} />
             </Switch>
         </BrowserRouter>
     );

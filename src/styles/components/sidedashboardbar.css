@@ -1,0 +1,69 @@
+.container {
+    width: 96px;
+    height: 100vh;
+    background-color: #15C3D6;
+    padding: 32px 0;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container img {
+    width: 56px;
+    height: 56px;
+}
+
+.container button {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: #12AFCB;
+    outline: none;
+    border: none;
+    color: #FFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pages .registered-orphanages-page {
+    margin-bottom: 16px;
+}
+
+.pending-orphanages-page {
+    position: relative;
+}
+
+.pending-orphanages-page .alert-circle {
+    background: #FFD666;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    position: absolute;
+    right: 14px;
+    top: 12px;
+}
+
+.pages .selected {
+    background-color: #FFD666;
+    color: #0089A5;
+    width: 52px;
+    height: 52px;
+
+    transition: background-color 0.2s;
+}
+
+.container button:hover {
+    cursor: pointer;
+    background-color: #96FEFF;
+    color: #15C3D6;
+}
+
+.container button.selected:hover {
+    color: #8D734B;
+    background-color: #FFD666;
+}

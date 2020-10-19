@@ -21,9 +21,11 @@ function Login() {
 
         if (rememberCheck) {
             localStorage.setItem('@Happy:token', token);
+            localStorage.setItem('@Happy:user', user);
+        } else {
+            sessionStorage.setItem('@Happy:token', token);
+            sessionStorage.setItem('@Happy:user', user);
         }
-
-        console.log(response.data);
     }
 
     function handleSelectButtomCheck() {
