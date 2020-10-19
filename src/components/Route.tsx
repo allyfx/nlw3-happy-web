@@ -32,7 +32,7 @@ export default function Route({ component: Component, isPrivate = false, ...rest
         <ReactRoute 
             {...rest}
             render={({ location }) => {
-                return isPrivate === (token !== '') ? (
+                return isPrivate === !!token ? (
                     <Component />
                 ) : (
                     <Redirect 
