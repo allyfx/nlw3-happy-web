@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api';
 
@@ -8,10 +8,17 @@ import SideContainer from '../../components/SideContainer';
 import '../../styles/pages/admin/forgot-password.css';
 
 function ForgotPassword() {
+    const history = useHistory();
     const [email, setEmail] = useState('');
 
-    async function handleSubmitLogin(event: FormEvent) {
-        
+    async function handleSubmitForgotPassword(event: FormEvent) {
+        event.preventDefault();
+
+        const response = await api.post('/user/forgot', { email });
+
+        const { link } = response.data;
+
+        history.push(link);
     }
 
     return (
@@ -23,10 +30,11 @@ function ForgotPassword() {
                     <FiArrowLeft size={24} color="#15C3D6" />
                 </Link>
 
-                <form onSubmit={handleSubmitLogin} className="forgot-password-form">
+                <form onSubmit={handleSubmitForgotPassword} className="forgot-password-form">
                     <div>
                         <legend>Esqueci a senha</legend>
-                        <p>Sua redefinição de senha será enviada para o e-mail cadastrado.</p>
+                        {/* <p>Sua redefinição de senha será enviada para o e-mail cadastrado.</p> */}
+                        <p>Você será redirecionado para a página de reset de senha.</p>
 
                         <div className="input-container">
                             <label htmlFor="email">E-mail</label>
