@@ -1,0 +1,21 @@
+.page-container {
+    width:100vw;
+    padding: 64px 150px;
+}
+
+.page-container header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #4D6F80;
+}
+
+.page-container header h1 {
+    font-weight: 700;
+}
+
+.page-container .line {
+    margin: 30px 0;
+    border: 1px solid #D3E2E5;
+}
