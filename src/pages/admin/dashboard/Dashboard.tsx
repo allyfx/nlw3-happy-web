@@ -33,7 +33,9 @@ export default function Dashboard() {
                             selected === 'registered'
                             ? 'registered-orphanages-page selected'
                             : 'registered-orphanages-page'
-                    }>
+                        }
+                        onClick={() => { setSelected('registered') }}
+                    >
                         <FiMapPin size={24} />
                     </button>
 
@@ -44,6 +46,7 @@ export default function Dashboard() {
                             ? 'pending-orphanages-page selected'
                             : 'pending-orphanages-page'
                         }
+                        onClick={() => { setSelected('pending') }}
                     >
                         <div
                             style={{ display: alertCircle ? 'block' : 'none' }}
@@ -58,7 +61,7 @@ export default function Dashboard() {
                 </button>
             </div>
             
-            <RegisteredOrphanages />
+            {selected === 'registered' ? <RegisteredOrphanages /> : <div />}
         </div>
     );
 };
