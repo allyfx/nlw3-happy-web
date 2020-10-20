@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import { FiEdit, FiTrash } from 'react-icons/fi';
+import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../../services/api';
 
 import '../../../styles/pages/admin/dashboard/pending-orphanages.css';
@@ -24,7 +24,7 @@ export default function PendingOrphanages() {
     return (
         <div className="page-container">
             <header>
-                <h1>Orfanatos cadastrados</h1>
+                <h1>Orfanatos pendentes</h1>
                 <small>{orphanages?.length} orfanatos</small>
             </header>
 
@@ -55,11 +55,7 @@ export default function PendingOrphanages() {
 
                                 <div className="buttons">
                                     <div className="edit-button">
-                                        <FiEdit size={24} color="#15C3D6" />
-                                    </div>
-
-                                    <div className="trash-button">
-                                        <FiTrash size={24} color="#15C3D6" />
+                                        <FiArrowLeft size={24} color="#15C3D6" />
                                     </div>
                                 </div>
                             </div>
