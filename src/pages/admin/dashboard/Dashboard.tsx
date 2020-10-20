@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import logoImg from '../../../images/map-marker.svg';
 
 import RegisteredOrphanages from './RegisteredOrphanages';
+import PendingOrphanages from './PendingOrphanages';
 
 import '../../../styles/pages/admin/dashboard/dashboard.css';
 
@@ -61,7 +62,7 @@ export default function Dashboard() {
                 </button>
             </div>
             
-            {selected === 'registered' ? <RegisteredOrphanages /> : <div />}
+            {selected === 'registered' ? <RegisteredOrphanages /> : <PendingOrphanages />}
         </div>
     );
 };

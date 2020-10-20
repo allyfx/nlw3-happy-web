@@ -1,0 +1,85 @@
+.page-container {
+    width:100vw;
+    padding: 64px 150px;
+}
+
+.page-container header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #4D6F80;
+}
+
+.page-container header h1 {
+    font-weight: 700;
+}
+
+.page-container .line {
+    margin: 30px 0;
+    border: 1px solid #D3E2E5;
+}
+
+.page-container .orphanages-list {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 0 112px;
+    row-gap: 30px;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-container .orphanage {
+    width: 600px;
+    height: 360px;
+    background: #FFF;
+    color: #4D6F80;
+    border-radius: 20px;
+}
+
+.page-container .orphanage .leaflet-container {
+    border-radius: 20px;
+}
+
+.orphanage .orphanage-content {
+    margin: 18px 36px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.orphanage .orphanage-content h2 {
+    font-size: 24px;
+}
+
+.orphanage-content .buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.orphanage-content .buttons div {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: #EBF2F5;
+
+    transition: background-color 0.2s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orphanage-content .buttons div + div {
+    margin-left: 8px;
+}
+
+.orphanage-content .buttons div:hover {
+    background: #D3E2E5;
+    cursor: pointer;
+}
