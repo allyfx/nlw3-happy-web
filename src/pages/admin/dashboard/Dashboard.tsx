@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import api from '../../../services/api';
 import { FiMapPin, FiAlertCircle, FiPower } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ import '../../../styles/pages/admin/dashboard/dashboard.css';
 
 export default function Dashboard() {
     const history = useHistory();
+
     const [selected, setSelected] = useState<'registered' | 'pending'>('registered');
     const [alertCircle, setAlertCircle] = useState(false);
 
@@ -21,6 +22,12 @@ export default function Dashboard() {
 
         history.push('/');
     }
+
+    useEffect(() => {
+        api.get('/admin/pending').then(response => {
+            setAlertCircle(response.data === [] && selected === 'registered');
+        })
+    }, [selected]);
 
     return (
         <div className="dashboard-container">

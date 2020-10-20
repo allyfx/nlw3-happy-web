@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import { FiArrowLeft } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 import api from '../../../services/api';
 
 import '../../../styles/pages/admin/dashboard/pending-orphanages.css';
@@ -12,13 +12,14 @@ interface Orphanage {
     latitude: number;
     longitude: number;
     name: string;
+    pending: boolean;
 }
 
 export default function PendingOrphanages() {
     const [orphanages, setOrphanages] = useState<Orphanage[]>();
 
     useEffect(() => {
-        api.get('/orphanages').then(response => setOrphanages(response.data));
+        api.get('/admin/pending').then(response => setOrphanages(response.data));
     }, []);
 
     return (
@@ -55,7 +56,7 @@ export default function PendingOrphanages() {
 
                                 <div className="buttons">
                                     <div className="edit-button">
-                                        <FiArrowLeft size={24} color="#15C3D6" />
+                                        <FiArrowRight size={24} color="#15C3D6" />
                                     </div>
                                 </div>
                             </div>

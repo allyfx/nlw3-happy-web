@@ -12,6 +12,7 @@ interface Orphanage {
     latitude: number;
     longitude: number;
     name: string;
+    pending: boolean;
 }
 
 export default function RegisterefOrphanages() {
