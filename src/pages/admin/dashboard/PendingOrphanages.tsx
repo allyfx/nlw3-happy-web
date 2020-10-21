@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { FiArrowRight } from 'react-icons/fi';
 import api from '../../../services/api';
@@ -18,6 +19,7 @@ interface Orphanage {
 
 export default function PendingOrphanages() {
     const [orphanages, setOrphanages] = useState<Orphanage[]>();
+    const history = useHistory();
 
     useEffect(() => {
         api.get('/admin/pending').then(response => setOrphanages(response.data));
@@ -61,7 +63,7 @@ export default function PendingOrphanages() {
                                     <h2>{orphanage.name}</h2>
 
                                     <div className="buttons">
-                                        <div className="edit-button">
+                                        <div className="edit-button" onClick={() => {history.push(`/pending/edit-orphanage/${orphanage.id}`)}}>
                                             <FiArrowRight size={24} color="#15C3D6" />
                                         </div>
                                     </div>

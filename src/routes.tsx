@@ -13,6 +13,7 @@ import ForgotPassword from './pages/admin/ForgotPassword';
 import ResetPassword from './pages/admin/ResetPassword';
 
 import Dashboard from './pages/admin/dashboard/Dashboard';
+import EditPendingOrphanage from './pages/admin/dashboard/EditPendingOrphanage';
 
 function Routes() {
     return (
@@ -28,6 +29,7 @@ function Routes() {
             <Route path="/reset-password" component={ResetPassword} />
 
             <Route path="/dashboard" component={Dashboard} isPrivate />
+            <Route path="/pending/edit-orphanage/:id" component={EditPendingOrphanage} isPrivate />
         </BrowserRouter>
     );
 }
