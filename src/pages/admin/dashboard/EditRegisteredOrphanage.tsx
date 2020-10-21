@@ -3,8 +3,6 @@ import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { FiCheck, FiXCircle } from "react-icons/fi";
-
 import Sidebar from '../../../components/Sidebar';
 import mapIcon from '../../../utils/mapIcon';
 import api from '../../../services/api';
