@@ -1,5 +1,6 @@
 .page-container {
     width:100vw;
+    height: 100vh;
     padding: 64px 150px;
 }
 
@@ -28,6 +29,21 @@
 
     justify-content: space-between;
     align-items: center;
+}
+
+.page-container .no-pending-orphanages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 20%;
+}
+
+.page-container .no-pending-orphanages p {
+    margin-top: 12px;
+    color: #8FA7B2;
+    font-size: 24px;
 }
 
 .page-container .orphanage {
