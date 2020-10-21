@@ -92,18 +92,18 @@ export default function EditOrphanage() {
 
     const { latitude, longitude } = position;
 
-    const data = new FormData();
+    const data = {
+      id: params.id,
+      name: name && name,
+      about: about && about,
+      latitude: longitude && longitude,
+      longitude: latitude && latitude,
+      instructions: instructions && instructions,
+      opening_hours: opening_hours && opening_hours,
+      open_on_weekends: open_on_weekends && open_on_weekends
+    };
 
-    data.append('id', params.id);
-    data.append('name', name);
-    data.append('about', about);
-    data.append('latitude', String(latitude));
-    data.append('longitude', String(longitude));
-    data.append('instructions', instructions);
-    data.append('opening_hours', opening_hours);
-    data.append('open_on_weekends', String(open_on_weekends));
-
-    await api.post(`/orphanages/update`, data);
+    await api.put(`/orphanages/update`, data);
     await api.post(`/admin/pending/${params.id}`);
 
     history.push('/dashboard');
