@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { FiEdit, FiTrash } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 import api from '../../../services/api';
 
 import '../../../styles/pages/admin/dashboard/registered-orphanages.css';
@@ -17,6 +18,7 @@ interface Orphanage {
 }
 
 export default function RegisterefOrphanages() {
+    const history = useHistory();
     const [orphanages, setOrphanages] = useState<Orphanage[]>();
 
     useEffect(() => {
@@ -73,7 +75,7 @@ export default function RegisterefOrphanages() {
                                     <h2>{orphanage.name}</h2>
 
                                     <div className="buttons">
-                                        <div className="edit-button">
+                                        <div onClick={() => { history.push(`/registered/edit-orphanage/${orphanage.id}`) }} className="edit-button">
                                             <FiEdit size={24} color="#15C3D6" />
                                         </div>
 

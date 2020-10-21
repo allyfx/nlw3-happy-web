@@ -146,7 +146,7 @@ form.create-orphanage-form .input-block .button-select button:last-child {
   border-left: 0;
 }
 
-form.create-orphanage-form button.confirm-button {
+form.create-orphanage-form button.confirm-update-button {
   margin-top: 64px;
 
   width: 100%;
@@ -165,10 +165,10 @@ form.create-orphanage-form button.confirm-button {
   transition: background-color 0.2s;
 }
 
-form.create-orphanage-form button.confirm-button svg {
+form.create-orphanage-form button.confirm-update-button svg {
   margin-right: 16px;
 }
 
-form.create-orphanage-form button.confirm-button:hover {
+form.create-orphanage-form button.confirm-update-button:hover {
   background: #36CF82;
 }

@@ -14,6 +14,7 @@ import ResetPassword from './pages/admin/ResetPassword';
 
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import EditPendingOrphanage from './pages/admin/dashboard/EditPendingOrphanage';
+import EditRegisteredOrphanage from './pages/admin/dashboard/EditRegisteredOrphanage';
 
 function Routes() {
     return (
@@ -30,6 +31,7 @@ function Routes() {
 
             <Route path="/dashboard" component={Dashboard} isPrivate />
             <Route path="/pending/edit-orphanage/:id" component={EditPendingOrphanage} isPrivate />
+            <Route path="/registered/edit-orphanage/:id" component={EditRegisteredOrphanage} isPrivate />
         </BrowserRouter>
     );
 }
