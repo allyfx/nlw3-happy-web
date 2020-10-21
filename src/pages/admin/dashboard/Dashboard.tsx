@@ -25,7 +25,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         api.get('/admin/pending').then(response => {
-            setAlertCircle(response.data === [] && selected === 'registered');
+            setAlertCircle(response.data.length !== 0 && selected === 'registered');
         })
     }, [selected]);
 

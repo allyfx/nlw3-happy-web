@@ -1,4 +1,4 @@
-import React, { useCallback, useState, FormEvent, ChangeEvent } from "react";
+import React, { useState, FormEvent, ChangeEvent } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 import { useHistory } from 'react-router-dom';
@@ -23,16 +23,16 @@ export default function CreateOrphanage() {
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
 
-  const handleMapClick = useCallback((event: LeafletMouseEvent) => {
+  function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng;
 
     setPosition({
       latitude: lat,
       longitude: lng,
     });
-  }, []);
+  }
 
-  const handleSelectImages = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+  function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
     if (!event.target.files) {
       return;
     }
@@ -46,7 +46,7 @@ export default function CreateOrphanage() {
     });
 
     setPreviewImages(selectedImagesPreview);
-  }, []);
+  }
   
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -68,8 +68,6 @@ export default function CreateOrphanage() {
     });
 
     await api.post('/orphanages', data);
-
-    alert('Cadastro realizado com sucesso!');
 
     history.push('/app');
   }
