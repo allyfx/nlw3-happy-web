@@ -20,7 +20,19 @@ export default function RegisterefOrphanages() {
 
     useEffect(() => {
         api.get('/orphanages').then(response => setOrphanages(response.data));
-    }, []);
+    }, [orphanages]);
+
+    async function handleDeleteOrphanage(id: number) {
+        await api.delete(`/orphanages/${id}`);
+
+        const orphanagesUpdated = orphanages?.filter(orphanage => orphanage.id !== id);
+
+        if (orphanagesUpdated?.length === 0) {
+            return;
+        }
+
+        setOrphanages(orphanagesUpdated);
+    }
 
     return (
         <div className="page-container">
@@ -59,7 +71,7 @@ export default function RegisterefOrphanages() {
                                         <FiEdit size={24} color="#15C3D6" />
                                     </div>
 
-                                    <div className="trash-button">
+                                    <div className="trash-button" onClick={() => {handleDeleteOrphanage(orphanage.id)}}>
                                         <FiTrash size={24} color="#15C3D6" />
                                     </div>
                                 </div>
